@@ -1,0 +1,84 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: workflow/aegean/k6_closed_client.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 45s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 15s (gracefulStop: 30s)
+
+
+running (01.0s), 10/10 VUs, 60 complete and 0 interrupted iterations
+default   [   7% ] 10 VUs  01.0s/15s
+
+running (02.0s), 10/10 VUs, 130 complete and 0 interrupted iterations
+default   [  13% ] 10 VUs  02.0s/15s
+
+running (03.0s), 10/10 VUs, 200 complete and 0 interrupted iterations
+default   [  20% ] 10 VUs  03.0s/15s
+
+running (04.0s), 10/10 VUs, 260 complete and 0 interrupted iterations
+default   [  27% ] 10 VUs  04.0s/15s
+
+running (05.0s), 10/10 VUs, 330 complete and 0 interrupted iterations
+default   [  33% ] 10 VUs  05.0s/15s
+
+running (06.0s), 10/10 VUs, 400 complete and 0 interrupted iterations
+default   [  40% ] 10 VUs  06.0s/15s
+
+running (07.0s), 10/10 VUs, 460 complete and 0 interrupted iterations
+default   [  47% ] 10 VUs  07.0s/15s
+
+running (08.0s), 10/10 VUs, 530 complete and 0 interrupted iterations
+default   [  53% ] 10 VUs  08.0s/15s
+
+running (09.0s), 10/10 VUs, 600 complete and 0 interrupted iterations
+default   [  60% ] 10 VUs  09.0s/15s
+
+running (10.0s), 10/10 VUs, 660 complete and 0 interrupted iterations
+default   [  67% ] 10 VUs  10.0s/15s
+
+running (11.0s), 10/10 VUs, 730 complete and 0 interrupted iterations
+default   [  73% ] 10 VUs  11.0s/15s
+
+running (12.0s), 10/10 VUs, 800 complete and 0 interrupted iterations
+default   [  80% ] 10 VUs  12.0s/15s
+
+running (13.0s), 10/10 VUs, 870 complete and 0 interrupted iterations
+default   [  87% ] 10 VUs  13.0s/15s
+
+running (14.0s), 10/10 VUs, 930 complete and 0 interrupted iterations
+default   [  93% ] 10 VUs  14.0s/15s
+
+running (15.0s), 10/10 VUs, 1000 complete and 0 interrupted iterations
+default   [ 100% ] 10 VUs  15.0s/15s
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration..............: avg=149.04ms min=133.02ms med=149.44ms max=172.22ms p(90)=158.29ms p(95)=160.37ms
+      { expected_response:true }...: avg=149.04ms min=133.02ms med=149.44ms max=172.22ms p(90)=158.29ms p(95)=160.37ms
+    http_req_failed................: 0.00%  0 out of 1010
+    http_reqs......................: 1010   66.983162/s
+
+    EXECUTION
+    iteration_duration.............: avg=149.26ms min=133.22ms med=149.59ms max=172.38ms p(90)=158.43ms p(95)=160.5ms 
+    iterations.....................: 1010   66.983162/s
+    vus............................: 10     min=10        max=10
+    vus_max........................: 10     min=10        max=10
+
+    NETWORK
+    data_received..................: 288 kB 19 kB/s
+    data_sent......................: 376 kB 25 kB/s
+
+
+
+
+running (15.1s), 00/10 VUs, 1010 complete and 0 interrupted iterations
+default ✓ [ 100% ] 10 VUs  15s
