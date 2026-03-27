@@ -1,0 +1,86 @@
+2026/03/27 05:50:16 telemetry disabled: AEGEAN_DISABLE_TRACING=1
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: workflow/aegean/k6_open_client.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10000 max VUs, 45s max duration (incl. graceful stop):
+              * default: 200.00 iterations/s for 15s (maxVUs: 0-10000, gracefulStop: 30s)
+
+
+running (01.0s), 00007/00016 VUs, 176 complete and 0 interrupted iterations
+default   [   7% ] 00007/00016 VUs  01.0s/15s  200.00 iters/s
+
+running (02.0s), 00020/00022 VUs, 358 complete and 0 interrupted iterations
+default   [  13% ] 00020/00022 VUs  02.0s/15s  200.00 iters/s
+
+running (03.0s), 00024/00030 VUs, 546 complete and 0 interrupted iterations
+default   [  20% ] 00024/00030 VUs  03.0s/15s  200.00 iters/s
+
+running (04.0s), 00031/00036 VUs, 733 complete and 0 interrupted iterations
+default   [  27% ] 00031/00036 VUs  04.0s/15s  200.00 iters/s
+
+running (05.0s), 00046/00051 VUs, 902 complete and 0 interrupted iterations
+default   [  33% ] 00046/00051 VUs  05.0s/15s  200.00 iters/s
+
+running (06.0s), 00059/00061 VUs, 1079 complete and 0 interrupted iterations
+default   [  40% ] 00059/00061 VUs  06.0s/15s  200.00 iters/s
+
+running (07.0s), 00065/00066 VUs, 1268 complete and 0 interrupted iterations
+default   [  47% ] 00065/00066 VUs  07.0s/15s  200.00 iters/s
+
+running (08.0s), 00069/00074 VUs, 1455 complete and 0 interrupted iterations
+default   [  53% ] 00069/00074 VUs  08.0s/15s  200.00 iters/s
+
+running (09.0s), 00078/00082 VUs, 1639 complete and 0 interrupted iterations
+default   [  60% ] 00078/00082 VUs  09.0s/15s  200.00 iters/s
+
+running (10.0s), 00083/00088 VUs, 1825 complete and 0 interrupted iterations
+default   [  67% ] 00083/00088 VUs  10.0s/15s  200.00 iters/s
+
+running (11.0s), 00091/00095 VUs, 2011 complete and 0 interrupted iterations
+default   [  73% ] 00091/00095 VUs  11.0s/15s  200.00 iters/s
+
+running (12.0s), 00101/00105 VUs, 2190 complete and 0 interrupted iterations
+default   [  80% ] 00102/00105 VUs  12.0s/15s  200.00 iters/s
+
+running (13.0s), 00101/00106 VUs, 2390 complete and 0 interrupted iterations
+default   [  87% ] 00101/00106 VUs  13.0s/15s  200.00 iters/s
+
+running (14.0s), 00102/00107 VUs, 2588 complete and 0 interrupted iterations
+default   [  93% ] 00102/00107 VUs  14.0s/15s  200.00 iters/s
+
+running (15.0s), 00102/00109 VUs, 2786 complete and 0 interrupted iterations
+default ↓ [ 100% ] 00102/00109 VUs  15s  200.00 iters/s
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration..............: avg=335.13ms min=26.88ms med=358.73ms max=601.88ms p(90)=520.95ms p(95)=529.41ms
+      { expected_response:true }...: avg=335.13ms min=26.88ms med=358.73ms max=601.88ms p(90)=520.95ms p(95)=529.41ms
+    http_req_failed................: 0.00%  0 out of 2888
+    http_reqs......................: 2888   185.307128/s
+
+    EXECUTION
+    dropped_iterations.............: 113    7.250591/s
+    iteration_duration.............: avg=335.26ms min=27.02ms med=358.87ms max=602.08ms p(90)=521.08ms p(95)=529.48ms
+    iterations.....................: 2888   185.307128/s
+    vus............................: 101    min=8         max=102
+    vus_max........................: 109    min=16        max=109
+
+    NETWORK
+    data_received..................: 858 kB 55 kB/s
+    data_sent......................: 1.1 MB 69 kB/s
+
+
+
+
+running (15.6s), 00000/00109 VUs, 2888 complete and 0 interrupted iterations
+default ✓ [ 100% ] 00000/00109 VUs  15s  200.00 iters/s
