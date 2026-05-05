@@ -1,0 +1,98 @@
+2026/05/05 06:04:53 telemetry disabled: AEGEAN_DISABLE_TRACING=1
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: workflow/aegean/k6_open_client.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10000 max VUs, 45s max duration (incl. graceful stop):
+              * default: 750.00 iterations/s for 15s (maxVUs: 0-10000, gracefulStop: 30s)
+
+
+running (01.0s), 00155/00155 VUs, 371 complete and 0 interrupted iterations
+default   [   7% ] 00155/00155 VUs  01.0s/15s  750.00 iters/s
+
+running (02.0s), 00264/00285 VUs, 805 complete and 0 interrupted iterations
+default   [  13% ] 00264/00285 VUs  02.0s/15s  750.00 iters/s
+
+running (03.0s), 00424/00425 VUs, 1179 complete and 0 interrupted iterations
+default   [  20% ] 00424/00425 VUs  03.0s/15s  750.00 iters/s
+
+running (04.0s), 00544/00544 VUs, 1605 complete and 0 interrupted iterations
+default   [  27% ] 00544/00544 VUs  04.0s/15s  750.00 iters/s
+
+running (05.0s), 00669/00674 VUs, 2026 complete and 0 interrupted iterations
+default   [  33% ] 00669/00674 VUs  05.0s/15s  750.00 iters/s
+
+running (06.0s), 00796/00797 VUs, 2461 complete and 0 interrupted iterations
+default   [  40% ] 00796/00797 VUs  06.0s/15s  750.00 iters/s
+
+running (07.0s), 00925/00925 VUs, 2871 complete and 0 interrupted iterations
+default   [  47% ] 00925/00925 VUs  07.0s/15s  750.00 iters/s
+
+running (08.0s), 01054/01055 VUs, 3293 complete and 0 interrupted iterations
+default   [  53% ] 01054/01055 VUs  08.0s/15s  750.00 iters/s
+
+running (09.0s), 01183/01184 VUs, 3713 complete and 0 interrupted iterations
+default   [  60% ] 01183/01184 VUs  09.0s/15s  750.00 iters/s
+
+running (10.0s), 01296/01313 VUs, 4131 complete and 0 interrupted iterations
+default   [  67% ] 01296/01313 VUs  10.0s/15s  750.00 iters/s
+
+running (11.0s), 01403/01436 VUs, 4579 complete and 0 interrupted iterations
+default   [  73% ] 01403/01436 VUs  11.0s/15s  750.00 iters/s
+
+running (12.0s), 01568/01569 VUs, 4965 complete and 0 interrupted iterations
+default   [  80% ] 01568/01569 VUs  12.0s/15s  750.00 iters/s
+
+running (13.0s), 01701/01701 VUs, 5369 complete and 0 interrupted iterations
+default   [  87% ] 01701/01701 VUs  13.0s/15s  750.00 iters/s
+
+running (14.0s), 01828/01828 VUs, 5789 complete and 0 interrupted iterations
+default   [  93% ] 01828/01828 VUs  14.0s/15s  750.00 iters/s
+
+running (15.0s), 01946/01965 VUs, 6214 complete and 0 interrupted iterations
+default   [ 100% ] 01946/01965 VUs  15s  750.00 iters/s
+
+running (16.0s), 01535/01965 VUs, 6626 complete and 0 interrupted iterations
+default ↓ [ 100% ] 01946/01965 VUs  15s  750.00 iters/s
+
+running (17.0s), 01136/01965 VUs, 7025 complete and 0 interrupted iterations
+default ↓ [ 100% ] 01946/01965 VUs  15s  750.00 iters/s
+
+running (18.0s), 00710/01965 VUs, 7451 complete and 0 interrupted iterations
+default ↓ [ 100% ] 01946/01965 VUs  15s  750.00 iters/s
+
+running (19.0s), 00275/01965 VUs, 7886 complete and 0 interrupted iterations
+default ↓ [ 100% ] 01946/01965 VUs  15s  750.00 iters/s
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration..............: avg=2.37s min=49.17ms med=2.39s max=4.66s p(90)=4.25s p(95)=4.48s
+      { expected_response:true }...: avg=2.37s min=49.17ms med=2.39s max=4.66s p(90)=4.25s p(95)=4.48s
+    http_req_failed................: 0.00%  0 out of 8161
+    http_reqs......................: 8161   415.175788/s
+
+    EXECUTION
+    dropped_iterations.............: 3090   157.198038/s
+    iteration_duration.............: avg=2.37s min=49.45ms med=2.39s max=4.66s p(90)=4.26s p(95)=4.48s
+    iterations.....................: 8161   415.175788/s
+    vus............................: 275    min=155       max=1946
+    vus_max........................: 1965   min=155       max=1965
+
+    NETWORK
+    data_received..................: 2.7 MB 136 kB/s
+    data_sent......................: 3.0 MB 155 kB/s
+
+
+
+
+running (19.7s), 00000/01965 VUs, 8161 complete and 0 interrupted iterations
+default ✓ [ 100% ] 00000/01965 VUs  15s  750.00 iters/s
