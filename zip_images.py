@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import shutil
-from collections import Counter
 from pathlib import Path
 
 
@@ -30,39 +29,70 @@ def is_relative_to(path: Path, parent: Path) -> bool:
     return True
 
 
-def find_images(results_root: Path, graphs_dir: Path) -> list[Path]:
+def is_image(path: Path) -> bool:
+    return path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
+
+
+def is_generated_graph(path: Path, results_root: Path, graphs_dir: Path) -> bool:
+    if is_relative_to(path, graphs_dir):
+        return True
+
+    relative_parts = path.relative_to(results_root).parts
+    return "graphs" in relative_parts[:-1]
+
+
+def find_images(results_root: Path, graphs_dir: Path) -> tuple[list[Path], int]:
     images = []
+    skipped = 0
     for path in sorted(results_root.rglob("*")):
-        if is_relative_to(path, graphs_dir):
+        if not is_image(path):
             continue
-        if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS:
-            images.append(path)
-    return images
+        if is_generated_graph(path, results_root, graphs_dir):
+            skipped += 1
+            continue
+        images.append(path)
+    return images, skipped
 
 
-def destination_name(
-    path: Path, results_root: Path, graphs_dir: Path, duplicate_names: set[str]
-) -> Path:
-    if path.name not in duplicate_names:
-        return graphs_dir / path.name
+def clean_graphs_dir(graphs_dir: Path) -> int:
+    if not graphs_dir.exists():
+        return 0
 
-    relative = path.relative_to(results_root)
-    return graphs_dir / "__".join(relative.parts)
+    removed = 0
+    for path in graphs_dir.iterdir():
+        if is_image(path):
+            path.unlink()
+            removed += 1
+    return removed
 
 
-def copy_images(results_root: Path, output_dir: Path) -> int:
+def destination_name(path: Path, graphs_dir: Path, used_names: set[str]) -> Path:
+    candidate = path.name
+    stem = path.stem
+    suffix = path.suffix
+    index = 2
+
+    while candidate in used_names:
+        candidate = f"{stem}_{index}{suffix}"
+        index += 1
+
+    used_names.add(candidate)
+    return graphs_dir / candidate
+
+
+def copy_images(results_root: Path, output_dir: Path) -> tuple[int, int, int]:
     graphs_dir = output_dir / "graphs"
     graphs_dir.mkdir(parents=True, exist_ok=True)
+    removed = clean_graphs_dir(graphs_dir)
 
-    images = find_images(results_root, graphs_dir)
-    name_counts = Counter(path.name for path in images)
-    duplicate_names = {name for name, count in name_counts.items() if count > 1}
+    images, skipped = find_images(results_root, graphs_dir)
+    used_names = {path.name for path in graphs_dir.iterdir()}
 
     for path in images:
-        destination = destination_name(path, results_root, graphs_dir, duplicate_names)
+        destination = destination_name(path, graphs_dir, used_names)
         shutil.copy2(path, destination)
 
-    return len(images)
+    return len(images), skipped, removed
 
 
 def main() -> int:
@@ -79,9 +109,12 @@ def main() -> int:
 
     results_root = Path(__file__).resolve().parent
     output_dir = args.output.resolve()
-    copied = copy_images(results_root, output_dir)
+    copied, skipped, removed = copy_images(results_root, output_dir)
 
-    print(f"Copied {copied} image(s) to {output_dir / 'graphs'}")
+    print(
+        f"Copied {copied} image(s) to {output_dir / 'graphs'} "
+        f"(skipped {skipped} generated graph image(s), removed {removed} old image(s))"
+    )
     return 0
 
 
