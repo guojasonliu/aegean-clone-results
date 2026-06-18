@@ -1,0 +1,84 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: workflow/write/k6_open_client.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10000 max VUs, 15s max duration (incl. graceful stop):
+              * default: 1257.00 iterations/s for 15s (maxVUs: 1257-10000)
+
+
+running (01.0s), 00065/01257 VUs, 1132 complete and 0 interrupted iterations
+default   [   6% ] 00065/01257 VUs  01.0s/15s  1257.00 iters/s
+
+running (02.0s), 00063/01257 VUs, 2391 complete and 0 interrupted iterations
+default   [  13% ] 00063/01257 VUs  02.0s/15s  1257.00 iters/s
+
+running (03.0s), 00037/01257 VUs, 3674 complete and 0 interrupted iterations
+default   [  20% ] 00037/01257 VUs  03.0s/15s  1257.00 iters/s
+
+running (04.0s), 00041/01257 VUs, 4927 complete and 0 interrupted iterations
+default   [  26% ] 00041/01257 VUs  04.0s/15s  1257.00 iters/s
+
+running (05.0s), 00041/01257 VUs, 6183 complete and 0 interrupted iterations
+default   [  33% ] 00041/01257 VUs  05.0s/15s  1257.00 iters/s
+
+running (06.0s), 00034/01257 VUs, 7448 complete and 0 interrupted iterations
+default   [  40% ] 00034/01257 VUs  06.0s/15s  1257.00 iters/s
+
+running (07.0s), 00068/01257 VUs, 8670 complete and 0 interrupted iterations
+default   [  46% ] 00068/01257 VUs  07.0s/15s  1257.00 iters/s
+
+running (08.0s), 00033/01257 VUs, 9964 complete and 0 interrupted iterations
+default   [  53% ] 00033/01257 VUs  08.0s/15s  1257.00 iters/s
+
+running (09.0s), 00061/01257 VUs, 11191 complete and 0 interrupted iterations
+default   [  60% ] 00062/01257 VUs  09.0s/15s  1257.00 iters/s
+
+running (10.0s), 00033/01257 VUs, 12477 complete and 0 interrupted iterations
+default   [  66% ] 00033/01257 VUs  10.0s/15s  1257.00 iters/s
+
+running (11.0s), 00039/01257 VUs, 13728 complete and 0 interrupted iterations
+default   [  73% ] 00039/01257 VUs  11.0s/15s  1257.00 iters/s
+
+running (12.0s), 00036/01257 VUs, 14989 complete and 0 interrupted iterations
+default   [  80% ] 00036/01257 VUs  12.0s/15s  1257.00 iters/s
+
+running (13.0s), 00035/01257 VUs, 16246 complete and 0 interrupted iterations
+default   [  86% ] 00035/01257 VUs  13.0s/15s  1257.00 iters/s
+
+running (14.0s), 00035/01257 VUs, 17504 complete and 0 interrupted iterations
+default   [  93% ] 00035/01257 VUs  14.0s/15s  1257.00 iters/s
+
+running (15.0s), 00045/01257 VUs, 18750 complete and 0 interrupted iterations
+default   [ 100% ] 00045/01257 VUs  15.0s/15s  1257.00 iters/s
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration..............: avg=37.1ms  min=19.12ms med=37.04ms max=63.25ms p(90)=47.88ms p(95)=49.32ms
+      { expected_response:true }...: avg=37.1ms  min=19.12ms med=37.04ms max=63.25ms p(90)=47.88ms p(95)=49.32ms
+    http_req_failed................: 0.00%  0 out of 18827
+    http_reqs......................: 18827  1254.903339/s
+
+    EXECUTION
+    iteration_duration.............: avg=37.16ms min=19.16ms med=37.1ms  max=63.76ms p(90)=47.95ms p(95)=49.38ms
+    iterations.....................: 18827  1254.903339/s
+    vus............................: 45     min=33         max=68  
+    vus_max........................: 1257   min=1257       max=1257
+
+    NETWORK
+    data_received..................: 3.8 MB 254 kB/s
+    data_sent......................: 1.9 MB 126 kB/s
+
+
+
+
+running (15.0s), 00000/01257 VUs, 18827 complete and 30 interrupted iterations
+default ✓ [ 100% ] 00030/01257 VUs  15s  1257.00 iters/s
