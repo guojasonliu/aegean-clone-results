@@ -1,0 +1,88 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: workflow/online_boutique/k6_open_view_cart.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10000 max VUs, 15s max duration (incl. graceful stop):
+              * default: 104.00 iterations/s for 15s (maxVUs: 104-10000)
+
+
+running (01.0s), 00006/00104 VUs, 97 complete and 0 interrupted iterations
+default   [   7% ] 00006/00104 VUs  01.0s/15s  104.00 iters/s
+
+running (02.0s), 00006/00104 VUs, 201 complete and 0 interrupted iterations
+default   [  13% ] 00006/00104 VUs  02.0s/15s  104.00 iters/s
+
+running (03.0s), 00006/00104 VUs, 305 complete and 0 interrupted iterations
+default   [  20% ] 00006/00104 VUs  03.0s/15s  104.00 iters/s
+
+running (04.0s), 00008/00104 VUs, 407 complete and 0 interrupted iterations
+default   [  27% ] 00008/00104 VUs  04.0s/15s  104.00 iters/s
+
+running (05.0s), 00007/00104 VUs, 512 complete and 0 interrupted iterations
+default   [  33% ] 00007/00104 VUs  05.0s/15s  104.00 iters/s
+
+running (06.0s), 00007/00104 VUs, 616 complete and 0 interrupted iterations
+default   [  40% ] 00007/00104 VUs  06.0s/15s  104.00 iters/s
+
+running (07.0s), 00008/00104 VUs, 719 complete and 0 interrupted iterations
+default   [  47% ] 00008/00104 VUs  07.0s/15s  104.00 iters/s
+
+running (08.0s), 00006/00104 VUs, 825 complete and 0 interrupted iterations
+default   [  53% ] 00006/00104 VUs  08.0s/15s  104.00 iters/s
+
+running (09.0s), 00006/00104 VUs, 929 complete and 0 interrupted iterations
+default   [  60% ] 00006/00104 VUs  09.0s/15s  104.00 iters/s
+
+running (10.0s), 00007/00104 VUs, 1032 complete and 0 interrupted iterations
+default   [  67% ] 00007/00104 VUs  10.0s/15s  104.00 iters/s
+
+running (11.0s), 00007/00104 VUs, 1136 complete and 0 interrupted iterations
+default   [  73% ] 00007/00104 VUs  11.0s/15s  104.00 iters/s
+
+running (12.0s), 00016/00104 VUs, 1231 complete and 0 interrupted iterations
+default   [  80% ] 00016/00104 VUs  12.0s/15s  104.00 iters/s
+
+running (13.0s), 00112/00112 VUs, 1231 complete and 0 interrupted iterations
+default   [  87% ] 00112/00112 VUs  13.0s/15s  104.00 iters/s
+
+running (14.0s), 00164/00164 VUs, 1231 complete and 0 interrupted iterations
+default   [  93% ] 00164/00164 VUs  14.0s/15s  104.00 iters/s
+
+running (15.0s), 00216/00216 VUs, 1231 complete and 0 interrupted iterations
+default   [ 100% ] 00216/00216 VUs  15.0s/15s  104.00 iters/s
+
+
+  █ TOTAL RESULTS 
+
+    CUSTOM
+    online_boutique_application_errors...: 0.00%  0 out of 1231
+
+    HTTP
+    http_req_duration....................: avg=63.75ms min=10.12ms med=65.39ms max=90.47ms p(90)=76.57ms p(95)=79.86ms
+      { expected_response:true }.........: avg=63.75ms min=10.12ms med=65.39ms max=90.47ms p(90)=76.57ms p(95)=79.86ms
+    http_req_failed......................: 0.00%  0 out of 1231
+    http_reqs............................: 1231   82.053632/s
+
+    EXECUTION
+    dropped_iterations...................: 113    7.532137/s
+    iteration_duration...................: avg=64.05ms min=10.46ms med=65.59ms max=90.87ms p(90)=76.86ms p(95)=80.14ms
+    iterations...........................: 1231   82.053632/s
+    vus..................................: 216    min=6         max=216
+    vus_max..............................: 216    min=104       max=216
+
+    NETWORK
+    data_received........................: 2.4 MB 160 kB/s
+    data_sent............................: 347 kB 23 kB/s
+
+
+
+
+running (15.0s), 00000/00217 VUs, 1231 complete and 217 interrupted iterations
+default ✓ [ 100% ] 00217/00217 VUs  15s  104.00 iters/s
